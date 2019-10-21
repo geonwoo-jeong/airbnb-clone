@@ -8,10 +8,9 @@ flake8 = "*"
 black = "*"
 
 [packages]
+pillow = "*"
 django = "*"
+black = "*"
 
 [requires]
-python_version = "3.8"
-
-[pipenv]
-allow_prereleases = true
+python_version = "3.7"
