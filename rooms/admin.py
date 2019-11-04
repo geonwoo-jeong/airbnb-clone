@@ -18,6 +18,8 @@ class ItemAdmin(admin.ModelAdmin):
 
 class PhotoInline(admin.TabularInline):
 
+    """ Photo Inline """
+
     model = models.Photo
 
 
