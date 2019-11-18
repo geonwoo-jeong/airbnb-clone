@@ -1,5 +1,8 @@
 from django.shortcuts import render
+from datetime import datetime
 
 
 def all_rooms(request):
-    pass
+    now = datetime.now()
+    return render(request, "all_rooms.html", context={"now": now})
+
