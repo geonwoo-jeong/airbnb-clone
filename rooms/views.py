@@ -3,6 +3,9 @@ from datetime import datetime
 
 
 def all_rooms(request):
-    now = datetime.now()
-    return render(request, "all_rooms.html", context={"now": now})
-
+    page = int(request.GET.get("page", 1))
+    page_size = 10
+    limit = page_size * page
+    offset = limit - page_size
+    all_rooms = models.Room.objects.all()[offset:limit]
+    return render(request, "rooms/home.html", {"all_rooms": all_rooms})
