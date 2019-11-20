@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from datetime import datetime
+from . import models
 
 
 def all_rooms(request):
-    now = datetime.now()
-    return render(request, "all_rooms.html", context={"now": now})
+    all_rooms = models.Room.objects.all()
+    return render(request, "all_rooms.html", context={"rooms": all_rooms})
 
