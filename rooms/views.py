@@ -39,29 +39,38 @@ class RoomDetail(DetailView):
 
 def search(request):
     city = request.GET.get("city", "Anywhere")
-    country = request.GET.get("country", "JP")
-    room_type = request.GET.get("room_type", 0)
     price = request.GET.get("price", 0)
     guests = request.GET.get("guests", 0)
     bedrooms = request.GET.get("bedrooms", 0)
     baths = request.GET.get("baths", 0)
     beds = request.GET.get("beds", 0)
+    instant = request.GET.get("instant", False)
+    super_host = request.GET.get("super_host", False)
 
-    city = str.capitalize(city)
+    selected_country = request.GET.get("country", "JP")
+    selected_room_type = request.GET.get("room_type", 0)
+    selected_amenities = request.GET.getlist("amenities")
+    selected_facilities = request.GET.getlist("facilities")
 
     room_types = models.RoomType.objects.all()
     amenities = models.Amenity.objects.all()
     facilities = models.Facility.objects.all()
 
+    city = str.capitalize(city)
+
     form = {
         "city": city,
-        "selected_room_type": int(room_type),
-        "selected_country": country,
         "price": int(price),
         "guests": int(guests),
         "bedrooms": int(bedrooms),
         "baths": int(baths),
         "beds": int(beds),
+        "instant": instant,
+        "super_host": super_host,
+        "selected_room_type": int(selected_room_type),
+        "selected_country": selected_country,
+        "selected_amenities": selected_amenities,
+        "selected_facilities": selected_facilities,
     }
 
     choices = {
