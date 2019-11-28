@@ -1,4 +1,5 @@
 from django.views.generic import ListView, DetailView
+from django.shortcuts import render
 from . import models
 
 
@@ -33,3 +34,9 @@ class RoomDetail(DetailView):
 #         return render(request, "rooms/room_detail.html", {"room": room})
 #     except models.Room.DoesNotExist:
 #         raise Http404()
+
+
+def search(request):
+    city = request.GET.get("city")
+    city = str.capitalize(city)
+    return render(request, "rooms/room_search.html", {"city": city})
