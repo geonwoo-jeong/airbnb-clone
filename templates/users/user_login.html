@@ -8,8 +8,8 @@
 {% endblock search-bar %}
 
 {% block content %}
-
-    Hello!
-
-
+    <form method="POSt" action="{ url 'users:login' }">
+        {{form.as_p}}
+        <button>Login</button>
+    </form>
 {% endblock content %} 
