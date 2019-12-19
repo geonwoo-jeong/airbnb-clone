@@ -5,6 +5,13 @@ from django.contrib.auth import authenticate, login, logout
 from . import forms
 
 
+class SignUpView(FormView):
+
+    template_name = "users/user_signup.html"
+    form_class = forms.SignUpForm
+    success_url = reverse_lazy("core:home")
+
+
 class LoginView(FormView):
 
     template_name = "users/user_login.html"
