@@ -13,6 +13,8 @@ django = "*"
 black = "*"
 django-countries = "*"
 django-seed = "*"
+django-pipenv = "*"
+django-dotenv = "*"
 
 [requires]
 python_version = "3.7"
