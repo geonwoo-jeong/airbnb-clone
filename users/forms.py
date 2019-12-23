@@ -31,7 +31,7 @@ class SignUpForm(forms.ModelForm):
         widget=forms.PasswordInput, label="Confirm Password"
     )
 
-    def clean_password(self):
+    def clean_password_confirm(self):
         password = self.cleaned_data.get("password")
         password_confirm = self.cleaned_data.get("password_confirm")
 
