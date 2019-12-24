@@ -136,7 +136,6 @@ MEDIA_URL = "/media/"
 # Email Configuration
 
 EMAIL_HOST = "smtp.mailgun.org"
-EMAIL_POST = 587
+EMAIL_POST = 465
 EMAIL_HOST_USER = os.environ.get("MAILGUN_USERNAME")
 EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
-EMAIL_FROM = "noreply@airbnb.gwjeong.com"

@@ -67,11 +67,13 @@ class User(AbstractUser):
             send_mail(
                 "Please verify your Airbnb account",
                 strip_tags(html_message),
-                settings.EMAIL_FROM,
+                settings.EMAIL_HOST_USER,
                 [self.email],
                 fail_silently=False,
                 html_message=html_message,
             )
+
+            self.save()
         return
 
     def get_absolute_url(self):
