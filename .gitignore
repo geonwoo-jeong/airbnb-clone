@@ -170,3 +170,4 @@ dmypy.json
 
 uploads/
 .env
+node_modules
