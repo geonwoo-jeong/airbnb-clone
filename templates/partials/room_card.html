@@ -1,3 +1,20 @@
 <section class="w-1/4 mb-10 px-2">
-    <figure class="w-full h-64 bg-cover bg-center rounded-lg " style="background-image: url({{room.first_photo}});"></figure>
+    <figure>
+        <img class="w-full h-64 bg-cover bg-center rounded-lg mb-2" src="{{room.first_photo}}" />
+        <figcaption>
+            <div class="flex justify-between">
+                <div class="flex justify-between">
+                    {% if room.host.superhost %}
+                    <span class="uppercase font-medium text-sm border border-black text-black rounded py px-1">Superhost</span>
+                    {% endif %}
+                    <p class="text-sm text-gray-600 ml-1">{{room.city}}</p>
+                </div>
+                <div class="text-sm flex items-center">
+                    <i class="fas fa-star text-red-500 text-xs mr-1"></i>
+                    <p>{{room.total_rating}}</p>
+                </div>
+            </div>
+        </figcaption>
+    </figure>
 </section>
+ 
