@@ -15,4 +15,22 @@
     }
 }
 
+.btn {
+    @apply text-center rounded-sm font-light text-lg w-full mb-2;
+}
+
+.divider {
+    @apply flex items-center w-full;
+
+    &::before {
+        content: " ";
+        @apply h-px w-full bg-gray-400;
+    }
+
+    &::after {
+        content: " ";
+        @apply h-px w-full bg-gray-400;
+    }
+}
+
 @tailwind utilities;
