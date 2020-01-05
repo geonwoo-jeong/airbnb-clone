@@ -12,7 +12,7 @@
                 {% include 'partials/room_card.html' with room=room %}
             {% endfor %}
         </article>
-        <div class="flex justify-center container">
+        <div class="flex justify-center container mb-10">
             {% if page_obj.has_previous %}
                 <a href="?page={{page_obj.previous_page_number}}" class="text-teal-500">
                     <i class="fas fa-arrow-left fa-lg"></i>

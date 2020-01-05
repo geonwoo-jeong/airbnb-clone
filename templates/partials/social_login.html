@@ -1,11 +1,20 @@
-<div>
-    <a href="{% url 'users:github-login' %}">
-        Continue with Github
-    </a>
-    <a>
-        Continue with Kakao
-    </a>
-    <a href="{% url 'users:line-login' %}">
-        Continue with Line
-    </a>
+<div class="flex flex-col w-full py-4 px-4">
+    <div class="text-center border-2 border-gray-700 font-medium  text-color-grey-700 rounded-sm mb-2">
+        <a href="{% url 'users:github-login' %}" class="flex justify-center items-center py-4">
+            <i class="fab fa-github fa-lg mr-2"></i>
+            <p>Continue with Github</p>
+        </a>
+    </div>
+    <div class="text-center text-yellow-800 mb-2 bg-yellow-400 font-medium  text-color-grey-700 rounded-sm mb-2">
+        <a class="flex justify-center item-center py-4">
+         <i class="fas fa-comment mr-2 fa-lg"></i>
+            <p>Continue with Kakao</P>
+        </a>
+    </div>
+    <div class="text-center font-medium bg-green-400 text-color-grey-700 rounded-sm mb-2">
+        <a href="{% url 'users:line-login' %}" class="flex justify-center item-center py-4">
+            <i class="fas fa-comment mr-2 fa-lg"></i>
+            <p>Continue with Line</p>
+        </a>
+    </div>
 </div>
