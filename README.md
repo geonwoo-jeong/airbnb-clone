@@ -1,3 +1,3 @@
-# Airbnb Clone
+# Airbnb Clone [![Build Status](https://travis-ci.com/geonwoo-jeong/airbnb-clone.svg?branch=master)](https://travis-ci.com/geonwoo-jeong/airbnb-clone)
 
 Cloning Airbnb with Python, Django, Tailwind and more...
