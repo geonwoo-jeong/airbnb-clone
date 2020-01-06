@@ -16,7 +16,7 @@ before_deploy:
   - mv airbnb.zip deploy/airbnb.zip
 deploy:
   - provider: s3
-    access_key_id: $AWS_ACCESE_KEY
+    access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
     bucket: $AWS_BUCKET
     region: ap-northeast-1
