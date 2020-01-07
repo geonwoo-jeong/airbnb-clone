@@ -17,21 +17,24 @@
 
         <form method="POST" action="{% url 'users:signup' %}" class="w-full py-4 px-4">
             {% csrf_token %}
-            <div class="btn border border-gray-500">
-                {{form.first_name}}
-            </div>
-            <div class="btn border border-gray-500">
-                {{form.last_name}}
-            </div>
-            <div class="btn border border-gray-500">
-                {{form.email}}
-            </div>
-            <div class="btn border border-gray-500">
-                {{form.password}}
-            </div>
-            <div class="btn border border-gray-500">
-                {{form.password_confirm}}
-            </div>
+
+            {% if form.non_field_errors %}
+                {% for error in form.non_field_errors %}
+                    <span class="text-red-700 font-medium text-sm">{{error}}</span>
+                {% endfor %}
+            {% endif %}
+
+            {% for field in form %}
+                <div class="btn border border-gray-500 {% if field.errors %}has_error{% endif %}">
+                    {{field}}
+                    {% if field.errors %}
+                        {% for error in field.errors %}
+                            <span class="text-red-700 font-medium text-sm">{{error}}</span>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            {% endfor %}
+
             <button class="btn bg-red-500 text-white py-4">Sign Up</button>
         </form>
 
