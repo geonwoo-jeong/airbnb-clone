@@ -4,6 +4,7 @@ from django.views.generic import FormView
 from django.shortcuts import render, redirect, reverse
 from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 from . import forms, models
 from django.http.request import HttpRequest
 
@@ -144,10 +145,11 @@ def line_callback(request):
             user.save()
 
         login(request, user)
+        messages.success(request, f"Welcome Back, {user.first_name}!")
         return redirect(reverse("core:home"))
 
-    except LineException as e:
-        print(e)
+    except LineException as error:
+        messages.error(request, error)
         return redirect(reverse("core:home"))
 
 
@@ -224,11 +226,11 @@ def github_callback(request):
             user.save()
 
         login(request, user)
-
+        messages.success(request, f"Welcome Back, {user.first_name}!")
         return redirect(reverse("core:home"))
 
-    except GithubException as e:
-        print(e)
+    except GithubException as error:
+        messages.error(request, error)
         return redirect("users:login")
 
 
