@@ -33,20 +33,18 @@
     }
 }
 
+
+
 .input {
-    @apply w-full h-full pl-4 py-4;
+    @apply w-full h-full pl-4 py-4 mb-0;
+}
 
-    &:focus {
-        @apply outline-none border-teal-500;
-    }
-
-    &.has_error {
-        @apply bg-red-200 border-gray-400;
-
-        &:focus {
-            @apply border-gray-600
-        }
+.has_error {
+    input {
+        @apply bg-red-200 border-gray-600;
     }
 }
+
+
 
 @tailwind utilities;

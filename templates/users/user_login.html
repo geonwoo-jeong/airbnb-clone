@@ -15,16 +15,7 @@
             <span class="text-gray-600 font-medium mx-4 text-sm">or</span>
         </div>
 
-        <form method="POSt" action="{% url 'users:login' %}" class="w-full py-4 px-4">
-            {% csrf_token %}
-            <div class="btn border border-gray-500">
-                {{form.email}}
-            </div>
-            <div class="btn border border-gray-500">
-                {{form.password}}
-            </div>
-            <button class="btn bg-red-500 text-white py-4">Login</button>
-        </form>
+        {% include "mixins/auth/auth_form.html" with form=form cta="Log in" %}
 
         <div class="mb-5">
             <span class="mr-2">Don't have an account?</span>

@@ -15,28 +15,8 @@
             <span class="text-gray-600 font-medium mx-4 text-sm">or</span>
         </div>
 
-        <form method="POST" action="{% url 'users:signup' %}" class="w-full py-4 px-4">
-            {% csrf_token %}
+        {% include "mixins/auth/auth_form.html" with form=form cta="Sign Up" %}
 
-            {% if form.non_field_errors %}
-                {% for error in form.non_field_errors %}
-                    <span class="text-red-700 font-medium text-sm">{{error}}</span>
-                {% endfor %}
-            {% endif %}
-
-            {% for field in form %}
-                <div class="btn border border-gray-500 {% if field.errors %}has_error{% endif %}">
-                    {{field}}
-                    {% if field.errors %}
-                        {% for error in field.errors %}
-                            <span class="text-red-700 font-medium text-sm">{{error}}</span>
-                        {% endfor %}
-                    {% endif %}
-                </div>
-            {% endfor %}
-
-            <button class="btn bg-red-500 text-white py-4">Sign Up</button>
-        </form>
 
         <div class="mb-5">
             <span class="mr-2">Have an account?</span>

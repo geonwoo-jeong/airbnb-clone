@@ -77,8 +77,8 @@ def line_login(self):
     response_type = "code"
     client_id = os.environ.get("LINE_CHANNEL")
     redirect_uri = HttpRequest.build_absolute_uri(self, reverse("users:line-callback"))
-    state = "asjdklqlkfj"       #todo unique state
-    scope = "openid%20profile" 
+    state = "asjdklqlkfj"  # todo unique state
+    scope = "openid%20profile"
 
     return redirect(
         f"https://access.line.me/oauth2/v2.1/authorize?response_type={response_type}&client_id={client_id}&state={state}&scope={scope}&nonce=asdasd&redirect_uri={redirect_uri}"

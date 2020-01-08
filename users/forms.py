@@ -36,9 +36,7 @@ class SignUpForm(forms.ModelForm):
             "last_name": forms.TextInput(
                 attrs={"placeholder": "Last Name", "class": "input"}
             ),
-            "email": forms.EmailInput(
-                attrs={"placeholder": "Email", "class": "input"}
-            ),
+            "email": forms.EmailInput(attrs={"placeholder": "Email", "class": "input"}),
         }
 
     password = forms.CharField(
@@ -49,6 +47,16 @@ class SignUpForm(forms.ModelForm):
             attrs={"placeholder": "Confirm Password", "class": "input"}
         )
     )
+
+    def clean_email(self):
+        email = self.cleaned_data.get("email")
+        try:
+            models.User.objects.get(email=email)
+            raise forms.ValidationError(
+                "That email is already taken", code="exsiting_user"
+            )
+        except models.User.DoesNotExist:
+            return email
 
     def clean_password_confirm(self):
         password = self.cleaned_data.get("password")

@@ -1,0 +1,12 @@
+<div class="mb-2">
+    <div class="btn border border-gray-500 {% if field.errors %}has_error{% endif %}">
+        {{field}}
+    </div>
+    <div>
+        {% if field.errors %}
+            {% for error in field.errors %}
+                <span class="text-red-700 font-medium text-sm">{{error}}</span>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
