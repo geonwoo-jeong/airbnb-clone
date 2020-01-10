@@ -239,6 +239,13 @@ class UserProfileView(DetailView):
     model = models.User
     context_object_name = "user_obj"
 
+    ## Add Context
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['hello'] = 'hello!'
+    #     return  context
+
 
 # class LoginView(View):
 #     def get(self, request):

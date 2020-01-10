@@ -97,6 +97,3 @@ class User(AbstractUser):
             self.save()
         return
 
-    def get_absolute_url(self):
-        return reverse("users:id", kwargs={self.id})
-
