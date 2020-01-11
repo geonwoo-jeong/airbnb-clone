@@ -92,5 +92,15 @@
     }
 }
 
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+select {
+    height: 50px;
+}
+
+
 
 @tailwind utilities;
