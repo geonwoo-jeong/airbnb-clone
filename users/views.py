@@ -7,6 +7,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from . import forms, models
 from django.http.request import HttpRequest
+from django.contrib.auth.views import PasswordChangeView
 
 
 class SignUpView(FormView):
@@ -250,7 +251,7 @@ class UserProfileView(DetailView):
 class UpdateProfileView(UpdateView):
 
     model = models.User
-    template_name = "users/update-profile.html"
+    template_name = "users/user-update-profile.html"
     fields = (
         "first_name",
         "last_name",
@@ -264,6 +265,11 @@ class UpdateProfileView(UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+
+class UpdatePasswordView(PasswordChangeView):
+
+    template_name = "users/user-update-password.html"
 
 
 # class LoginView(View):
